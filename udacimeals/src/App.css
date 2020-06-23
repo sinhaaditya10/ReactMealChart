@@ -1,0 +1,24 @@
+*{
+  padding:0;
+  margin: 0;
+}
+.App {
+  text-align: center;
+}
+.calendar-icon:hover{
+  color: green;
+  cursor: pointer;
+}
+.headings{
+  font-size: larger;
+  font-weight: bolder;
+  margin: 1rem;
+}
+.shopping-list{
+  margin: 1rem;
+  font-weight: bold;
+}
+.shopping-list:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
