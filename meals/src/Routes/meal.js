@@ -56,7 +56,6 @@ router.get('/:query', (req, res) => {
         }
     })
     .then(meals => {
-        console.log(meals);
         res.send(meals);
     })
     .catch(err => console.log(err));

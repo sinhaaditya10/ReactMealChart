@@ -1,15 +1,38 @@
 import React, { Component } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
+import { updateMeal } from '../Actions';
+import { connect } from 'react-redux';
 class Meal extends Component {
     render() { 
+        const {Meal,day,meal,selectRecipe}= this.props;
+
         return (
-            <Card style={{textAlign: "center", padding: "0.5rem", margin: "0.2rem"}}>
-                <img src={this.props.meal.photoURL} style={{width: "7rem", height: "5rem", textAlign: "center"}} alt= "#ffff"/>
-                <label>{this.props.meal.name}</label>
-                <label>{this.props.meal.calories}</label>
+            <Card className="meal-card" onClick={() => selectRecipe(Meal, day, meal)}>
+                <Row>
+                    <Col align="center">
+                        <img src={Meal.photoURL} alt= {Meal.name} className="meal-img"/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                    <label>{Meal.name}</label>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                    <label>{Meal.calories}</label>
+                    </Col>
+                </Row>
             </Card>
         );
     }
 }
- 
-export default Meal;
+
+function mapDispatchToProps(dispatch)
+{
+    return{
+        selectRecipe: (Meal,day,meal) => dispatch(updateMeal(Meal,day,meal))
+    }
+    
+}
+export default connect(null,mapDispatchToProps)(Meal);
